@@ -1,7 +1,5 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Login from "../Sign Up/Login";
-import Register from "../Sign Up/Register";
 import HomePage from "../HomePage";
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";
@@ -15,13 +13,11 @@ const Routing = () => {
           <Header />
           <main className="flex-grow mt-16">
             <Routes>
-              <Route path="/Home" element={<HomePage />} />
-              <Route path="/Login" element={<Login />} />
+              <Route path="/" element={<HomePage />} />
               <Route path="/About" element={<About />} />
               <Route path="/Service" element={<About />} />
               <Route path="/Reviews" element={<About />} />
               <Route path="/Contact" element={<About />} />
-              <Route path="/Register" element={<Register />} />
             </Routes>
           </main>
           <Footer />

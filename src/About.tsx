@@ -1,5 +1,4 @@
 import React from "react";
-import HeroSection from "./Components/HeroSection";
 import Roadmap from "./Components/Roadmap";
 import { Lightbulb, CircleFadingArrowUp, SquareChartGantt } from "lucide-react";
 

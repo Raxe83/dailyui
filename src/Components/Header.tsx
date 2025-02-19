@@ -11,7 +11,7 @@ const Header = () => {
       <div className="grid-start-2 grid-end-2"></div>
       <nav className="grid-start-3 grid-end-4  flex items-center justify-center">
         <ul className="flex-row flex py-2 px-8">
-          <NavItem location={"Home"} locationTitle={"Home"} />
+          <NavItem location={""} locationTitle={"Home"} />
           <NavItem location={"About"} locationTitle={"About"} />
           <NavItem location={"Service"} locationTitle={"Service"} />
           <NavItem location={"Reviews"} locationTitle={"Reviews"} />

@@ -2,8 +2,11 @@ import HeroSection from "../Components/HeroSection";
 import InfoCard from "../Components/InfoCard";
 import { Eye, Coins, Handshake } from "lucide-react";
 import ServicesOverview from "../Components/services";
-import Button from "../ui/CustomButton";
-import Contact from "../Components/Contact";
+// import Contact from "../Components/Contact";
+import Button from "../Components/ui/CustomButton";
+import Pricing from "../Components/Pricing";
+import { Link as ScrollLink } from "react-scroll";
+// import InfoSection from "../Components/InfoSection";
 
 const HomePage = () => {
   return (
@@ -18,13 +21,14 @@ const HomePage = () => {
         }
         buttons={[
           <div className="w-full lg:w-4/12">
-            <Button
-              color={"daily_ui"}
-              round="full"
-              onClick={() => {}}
-              // TODO: Change button text
-              text="Jetzt starten"
-            />
+            <ScrollLink to="pricing" smooth={true} duration={500}>
+              <Button
+                color={"daily_ui"}
+                round="full"
+                onClick={() => {}}
+                text="Webseite sichern"
+              />
+            </ScrollLink>
           </div>,
         ]}
         imgSrc={"modernWorkspace.jpeg"}
@@ -65,43 +69,61 @@ const HomePage = () => {
           },
         ]}
       />
-
-      {/* <InfoSection /> */}
       <ServicesOverview />
-      <Contact />
-      {/* <Pricing
+      <Pricing
         pricingProp={[
           {
-            title: "Basic",
-            price: 9.99,
-            features: ["1 User", "10GB Storage", "Basic Support"],
-            isPopular: false,
+            title: "One Pager",
+            detail: "Eine einzelne Webseite",
+            price: 500,
+            features: [
+              { title: "Eine einzelne Webseite", isChecked: true },
+              { title: "Responsive Design", isChecked: true },
+              { title: "Individuelles Design", isChecked: true },
+              { title: "Kontaktformular", isChecked: true },
+              { title: "Bildergalerie", isChecked: false },
+              { title: "SEO-Grundoptimierung", isChecked: false },
+              { title: "Individuelle Funktionen", isChecked: false },
+              // { title: "E-Commerce (Shop)", isChecked: false },
+              // { title: "Blog-Funktion", isChecked: false },
+            ],
           },
           {
-            title: "Pro",
-            price: 19.99,
+            title: "Standart Webseite",
+            detail: "Professionelle Webseite mit Unterseiten",
+            price: 1.199,
             features: [
-              "5 Users",
-              "50GB Storage",
-              "Priority Support",
-              "Advanced Analytics",
+              { title: "Bis zu 5 Unterseiten", isChecked: true },
+              { title: "Responsive Design", isChecked: true },
+              { title: "Individuelles Design", isChecked: true },
+              { title: "Kontaktformular", isChecked: true },
+              { title: "Bildergalerie", isChecked: true },
+              { title: "SEO-Grundoptimierung", isChecked: true },
+              { title: "Individuelle Funktionen", isChecked: false },
+              // { title: "E-Commerce (Shop)", isChecked: false },
+              // { title: "Blog-Funktion", isChecked: false },
             ],
             isPopular: true,
           },
           {
-            title: "Enterprise",
-            price: 49.99,
+            title: "Komplexe Webseite",
+            detail: "Umfangreiche Webseite mit vielen individuellen Funktionen",
+            price: 2.499,
             features: [
-              "Unlimited Users",
-              "1TB Storage",
-              "24/7 Support",
-              "Custom Solutions",
+              { title: "Umfangreiche Webseite", isChecked: true },
+              { title: "Responsive Design", isChecked: true },
+              { title: "Individuelles Design", isChecked: true },
+              { title: "Kontaktformular", isChecked: true },
+              { title: "Bildergalerie", isChecked: true },
+              { title: "SEO-Grundoptimierung", isChecked: true },
+              { title: "Individuelle Funktionen", isChecked: true },
+              // { title: "E-Commerce (Shop)", isChecked: true },
+              // { title: "Blog-Funktion", isChecked: true },
             ],
-            isPopular: false,
           },
         ]}
-      /> */}
-      {/* <FAQSection /> */}
+      />
+      {/* <Contact /> */}
     </div>
   );
 };

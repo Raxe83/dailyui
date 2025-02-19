@@ -1,6 +1,10 @@
 import React from "react";
 
-export const getLastWordsToRecolor = (text: string, wordsToRecolor?: number) => {
+export const getLastWordsToRecolor = (
+  text: string,
+  wordsToRecolor: number = 2,
+  wordsToHighlight?: string[]
+) => {
   const words = text.split(" ");
   if (words.length < 3) {
     return (
@@ -9,18 +13,39 @@ export const getLastWordsToRecolor = (text: string, wordsToRecolor?: number) => 
       </span>
     );
   }
-  const lastTwoWords = words.slice(-(wordsToRecolor ?? 2)).join(" ");
-  const remainingText = words.slice(0, -(wordsToRecolor ?? 2)).join(" ");
+
+  // Falls wordsToRecolor 0 ist, bleibt der gesamte Text unverändert
+  const lastWordsCount = Math.max(0, wordsToRecolor);
+  const lastWords = lastWordsCount > 0 ? words.slice(-lastWordsCount).join(" ") : "";
+  const remainingWords = lastWordsCount > 0 ? words.slice(0, -lastWordsCount) : words;
+
+  // Text mit hervorgehobenen Wörtern erstellen
+  const highlightedText = remainingWords.map((word, index) => {
+    if (wordsToHighlight?.includes(word)) {
+      return (
+        <span
+          key={index}
+          className="bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 text-transparent bg-clip-text"
+        >
+          {word}{" "}
+        </span>
+      );
+    }
+    return <span key={index}>{word} </span>;
+  });
 
   return (
     <span>
-      {remainingText}{" "}
-      <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 text-transparent bg-clip-text">
-        {lastTwoWords}
-      </span>
+      {highlightedText}
+      {lastWords && (
+        <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-purple-600 text-transparent bg-clip-text">
+          {` ${lastWords}`}
+        </span>
+      )}
     </span>
   );
 };
+
 
 interface props {
   header: string;
@@ -48,7 +73,10 @@ const HeroSection = ({ header, desc, buttons, imgSrc, alt, imgPos }: props) => {
     </div>
   );
   return (
-    <div id="HeroSection" className="w-full py-12 px-0 lg:px-24 bg-gray-50 text-black">
+    <div
+      id="HeroSection"
+      className="w-full py-12 px-0 lg:px-24 bg-gray-50 text-black"
+    >
       <div className="flex flex-col items-center justify-center">
         <div className="flex lg:flex-row flex-col justify-center items-center">
           <div className={`${imgPos === "left" ? "hidden" : "block"}`}>

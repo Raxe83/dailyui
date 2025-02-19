@@ -1,5 +1,5 @@
-import Button from "../ui/CustomButton";
 import { getLastWordsToRecolor } from "./HeroSection";
+import Button from "./ui/CustomButton";
 
 const InfoSection = () => {
   return (

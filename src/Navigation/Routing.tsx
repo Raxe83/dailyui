@@ -4,6 +4,7 @@ import Footer from "../Components/Footer";
 import Header from "../Components/Header";
 import HomePage from "../sites/HomePage";
 import Datenschutz from "../sites/Datenschutz";
+import Contact from "../Components/Contact";
 
 const Routing = () => {
   return (
@@ -15,6 +16,7 @@ const Routing = () => {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/Privacy" element={<Datenschutz />} />
+              <Route path="/contact" element={<Contact />} />
             </Routes>
           </main>
           <Footer />

@@ -3,7 +3,8 @@ import { NavItem } from "../Navigation/NavItem";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 
-// TODO: Rework Header with Navigation element not Scrolling
+// TODO: Multilanguage support
+// TODO: Dark mode support
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

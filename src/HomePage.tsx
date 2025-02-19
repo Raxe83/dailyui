@@ -1,11 +1,7 @@
-import React from "react";
 import HeroSection from "./Components/HeroSection";
 import InfoCard from "./Components/InfoCard";
 import { Eye, Coins, Handshake } from "lucide-react";
-import InfoSection from "./Components/InfoSection";
-import Pricing from "./Components/Pricing";
 import Button from "./ui/CustomButton";
-import FAQSection from "./Components/FAQSection";
 import ServicesOverview from "./Components/services";
 
 const HomePage = () => {

@@ -16,7 +16,7 @@ const InfoCard = ({ cardProp }: props) => {
       <h1 className="font-bold text-2xl sm:text-3xl lg:text-4xl text-center mb-12">
         {getLastWordsToRecolor("Warum eine professionelle Webseite?", 1)}
       </h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 xl:px-40 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {cardProp.map((card, index) => {
           return (
             <div

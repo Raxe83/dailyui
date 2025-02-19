@@ -42,24 +42,23 @@ const HeroSection = ({ header, desc, buttons, imgSrc, alt, imgPos }: props) => {
 
   const imgComponent = (
     <div
-      className={`flex border justify-center shadow-xl rounded-3xl bg-gray-200/50`}
-      style={{ width: 640, height: 545 }}
+      className={`flex border w-[300px] lg:w-[600px] justify-center shadow-xl rounded-3xl bg-gray-200/50`}
     >
       <img className="border rounded-3xl" src={img} alt={alt} />
     </div>
   );
   return (
-    <div className="w-full py-12 px-24 bg-gray-50 text-black">
+    <div className="w-full py-12 px-0 lg:px-24 bg-gray-50 text-black">
       <div className="flex flex-col items-center justify-center">
         <div className="flex lg:flex-row flex-col justify-center items-center">
           <div className={`${imgPos === "left" ? "hidden" : "block"}`}>
             {imgComponent}
           </div>
-          <div className="w-3/6 flex flex-col justify-center ml-8 pr-2">
-            <div className="font-bold text-4xl">
+          <div className="w-full  lg:w-3/6 flex flex-col justify-center ml-8 pr-12">
+            <div className="font-bold text-2xl lg:text-4xl">
               {getLastWordsToRecolor(header, 3)}
             </div>
-            <div className="font-semibold text-xl mt-4">{desc}</div>
+            <div className="font-semibold text-md lg:text-xl mt-4">{desc}</div>
             <div className="mt-8">{buttons}</div>
           </div>
           <div className={`${imgPos === "left" ? "block" : "hidden"}`}>

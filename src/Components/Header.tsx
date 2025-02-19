@@ -12,9 +12,9 @@ const Header = () => {
   return (
     <header className="bg-gray-50 fixed w-full z-50 text-black shadow-lg">
       <div className="max-w-7xl mx-auto lg:px-8">
-        <div className="flex items-center py-4">
+        <div className="flex md:justify-between items-center py-4 md:pr-8 lg:pr-0">
           <div className="flex items-center">
-            <p className="font-bold bg-gradient-to-r from-blue-400 to-purple-600 text-2xl w-48 text-transparent bg-clip-text cursor-pointer">
+            <p className="font-bold bg-gradient-to-r ml-4 from-blue-400 to-purple-600 text-2xl w-48 text-transparent bg-clip-text cursor-pointer">
               Rayden|Studio
             </p>
           </div>
@@ -27,7 +27,7 @@ const Header = () => {
               <NavItem location={"contact"} locationTitle={"Contact"} />
             </ul>
           </nav>
-          <div className="md:hidden flex items-center ml-auto">
+          <div className="md:hidden flex items-center ml-auto mr-8">
             <button onClick={toggleMenu} className="text-gray-600 hover:text-gray-900 focus:outline-none">
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>

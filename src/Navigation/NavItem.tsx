@@ -7,12 +7,12 @@ type Props = {
 
 export const NavItem = (props: Props) => {
   return (
-    <li className="mb-1 ml-2 border rounded-xl bg-slate-100">
+    <li className="mb-1 ml-2 rounded-xl">
       <NavLink
         to={props.location}
-        className={`flex mx-auto items-center hover:bg-gray-200 dark:hover:bg-darkmode-400 p-2 rounded`}
+        className={`flex mx-auto text-gray-600 items-center p-2 rounded hover:bg-gray-500/20 hover:text-gray-900`}
       >
-        <span className={`ml-2`}>{props.locationTitle}</span>
+        <span className={`px-1 font-semibold`}>{props.locationTitle}</span>
       </NavLink>
     </li>
   );

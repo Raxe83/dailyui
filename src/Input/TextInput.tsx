@@ -27,33 +27,12 @@ const TextInput: React.FC<TextProps> = ({
   const [hasError, setHasError] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const textInputRef = useRef<HTMLInputElement>(null);
-  const { registerValidation } = useValidation()!;
 
-  const validate = () => {
-    if (validationType) {
-      const validationFunction = validationFunctions[validationType];
-      const isValid = validationFunction.validate(text[0], validationParam);
-      setHasError(!isValid);
-      if (!isValid) {
-        const error = validationFunction.errorMessage;
-        setErrorMessage(typeof error === "function" ? error(validationParam) : error);
-      } else {
-        setErrorMessage(null);
-      }
-      return isValid;
-    }
-    return true;
-  };
-
-  useEffect(() => {
-    registerValidation(validate);
-  }, [registerValidation]);
 
   const handleBlur = () => {
     if (text[0].length === 0) {
       setIsFocused(false);
     }
-    validate();
   };
 
   const handleFocus = () => {

@@ -1,5 +1,5 @@
 import type React from "react"
-// import Link from "next/link"
+import { Link } from "react-router-dom"
 
 const Footer: React.FC = () => {
   return (
@@ -14,65 +14,65 @@ const Footer: React.FC = () => {
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                {/* <Link href="#" className="text-gray-400 hover:text-white transition duration-300"> */}
+                <Link to="/" className="hover:text-gray-400 text-white transition duration-300">
                   Home
-                {/* </Link> */}
+                </Link>
               </li>
               <li>
-                {/* <Link href="#" className="text-gray-400 hover:text-white transition duration-300"> */}
-                  Features
-                {/* </Link> */}
+                <Link to="/Privacy" className="hover:text-gray-400 text-white transition duration-300">
+                  Datenschutz
+                </Link>
               </li>
-              <li>
-                {/* <Link href="#" className="text-gray-400 hover:text-white transition duration-300"> */}
+              {/* <li>
+                <Link to="#" className="hover:text-gray-400 text-white transition duration-300">
                   Pricing
-                {/* </Link> */}
+                </Link>
               </li>
               <li>
-                {/* <Link href="#" className="text-gray-400 hover:text-white transition duration-300"> */}
+                <Link to="#" className="hover:text-gray-400 text-white transition duration-300">
                   FAQ
-                {/* </Link> */}
-              </li>
+                </Link>
+              </li> */}
             </ul>
           </div>
-          <div>
+          {/* <div>
             <h4 className="text-lg font-semibold mb-4">Community</h4>
             <ul className="space-y-2">
               <li>
-                {/* <Link href="#" className="text-gray-400 hover:text-white transition duration-300"> */}
+                <Link to="#" className="hover:text-gray-400 text-white transition duration-300">
                   Blog
-                {/* </Link> */}
+                </Link>
               </li>
               <li>
-                {/* <Link href="#" className="text-gray-400 hover:text-white transition duration-300"> */}
+                <Link to="#" className="hover:text-gray-400 text-white transition duration-300">
                   Forum
-                {/* </Link> */}
+                </Link>
               </li>
               <li>
-                {/* <Link href="#" className="text-gray-400 hover:text-white transition duration-300"> */}
+                <Link to="#" className="hover:text-gray-400 text-white transition duration-300">
                   Showcase
-                {/* </Link> */}
+                </Link>
               </li>
             </ul>
-          </div>
+          </div> */}
           <div>
             <h4 className="text-lg font-semibold mb-4">Connect</h4>
             <ul className="space-y-2">
-              <li>
-                {/* <Link href="#" className="text-gray-400 hover:text-white transition duration-300"> */}
+              {/* <li>
+                <Link to="#" className="hover:text-gray-400 text-white transition duration-300">
                   Twitter
-                {/* </Link> */}
-              </li>
+                </Link>
+              </li> */}
               <li>
-                {/* <Link href="#" className="text-gray-400 hover:text-white transition duration-300"> */}
+                <Link to="#" className="hover:text-gray-400 text-white transition duration-300">
                   Instagram
-                {/* </Link> */}
+                </Link>
               </li>
-              <li>
-                {/* <Link href="#" className="text-gray-400 hover:text-white transition duration-300"> */}
+              {/* <li>
+                <Link to="#" className="hover:text-gray-400 text-white transition duration-300">
                   LinkedIn
-                {/* </Link> */}
-              </li>
+                </Link>
+              </li> */}
             </ul>
           </div>
         </div>

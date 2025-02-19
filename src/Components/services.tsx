@@ -43,7 +43,7 @@ interface ServiceCardProps {
 
 function ServiceCard({ service, isOpen, toggleOpen }: ServiceCardProps) {
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden">
+    <div id="Service" className="bg-white rounded-lg shadow-md overflow-hidden">
       <div className="flex items-center justify-between p-4 cursor-pointer" onClick={toggleOpen}>
         <div className="flex items-center space-x-4">
           <service.icon className="w-6 h-6 text-blue-600" />

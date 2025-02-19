@@ -1,8 +1,9 @@
-import HeroSection from "./Components/HeroSection";
-import InfoCard from "./Components/InfoCard";
+import HeroSection from "../Components/HeroSection";
+import InfoCard from "../Components/InfoCard";
 import { Eye, Coins, Handshake } from "lucide-react";
-import Button from "./ui/CustomButton";
-import ServicesOverview from "./Components/services";
+import ServicesOverview from "../Components/services";
+import Button from "../ui/CustomButton";
+import Contact from "../Components/Contact";
 
 const HomePage = () => {
   return (
@@ -67,6 +68,7 @@ const HomePage = () => {
 
       {/* <InfoSection /> */}
       <ServicesOverview />
+      <Contact />
       {/* <Pricing
         pricingProp={[
           {

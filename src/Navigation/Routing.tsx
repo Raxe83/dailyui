@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import HomePage from "../HomePage";
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";
-import About from "../About";
+import HomePage from "../sites/HomePage";
+import Datenschutz from "../sites/Datenschutz";
 
 const Routing = () => {
   return (
@@ -14,10 +14,7 @@ const Routing = () => {
           <main className="flex-grow mt-16">
             <Routes>
               <Route path="/" element={<HomePage />} />
-              <Route path="/About" element={<About />} />
-              <Route path="/Service" element={<About />} />
-              <Route path="/Reviews" element={<About />} />
-              <Route path="/Contact" element={<About />} />
+              <Route path="/Privacy" element={<Datenschutz />} />
             </Routes>
           </main>
           <Footer />

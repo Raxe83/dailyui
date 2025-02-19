@@ -12,7 +12,7 @@ interface props {
 
 const InfoCard = ({ cardProp }: props) => {
   return (
-    <div className="py-16 px-4 sm:px-6 lg:px-8">
+    <div id="Vorteile" className="py-16 px-4 sm:px-6 lg:px-8">
       <h1 className="font-bold text-2xl sm:text-3xl lg:text-4xl text-center mb-12">
         {getLastWordsToRecolor("Warum eine professionelle Webseite?", 1)}
       </h1>

@@ -16,12 +16,12 @@ const InfoCard = ({ cardProp }: props) => {
       <h1 className="font-bold text-2xl sm:text-3xl lg:text-4xl text-center mb-12">
         {getLastWordsToRecolor("Warum eine professionelle Webseite?", 1)}
       </h1>
-      <div className="grid grid-cols-1 xl:px-40 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 xl:px-36 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {cardProp.map((card, index) => {
           return (
             <div
               key={index}
-              className="flex flex-col min-w-80 items-center bg-gray-50 rounded-3xl p-6 shadow-md"
+              className="flex flex-col min-w-72 items-center bg-gray-50 rounded-3xl px-2 py-6 shadow-md"
             >
               <div className="mb-4 bg-gray-50 rounded-full p-2">{card.icon}</div>
               <div className="text-center">

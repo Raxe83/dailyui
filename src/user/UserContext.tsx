@@ -18,13 +18,61 @@ export const useValidation = () => {
 export const UserProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [selectedPlan, setSelectedPlan] = React.useState<string>("");
-  // TODO: Session storage for price and monthlyPrice
-  const [price, setPrice] = React.useState<number>(0);
-  const [monthlyPrice, setMonthlyPrice] = React.useState<number>(0);
+  const EXPIRATION_TIME = 60 * 60 * 1000; // 1 Stunde (in Millisekunden)
+
+  const getStoredValue = (key: string) => {
+    const item = sessionStorage.getItem(key);
+    if (!item) return null;
+
+    const { value, timestamp } = JSON.parse(item);
+    if (Date.now() - timestamp > EXPIRATION_TIME) {
+      sessionStorage.removeItem(key);
+      return null;
+    }
+    return value;
+  };
+
+  const setStoredValue = (key: string, value: number | string) => {
+    const item = {
+      value,
+      timestamp: Date.now(),
+    };
+    sessionStorage.setItem(key, JSON.stringify(item));
+  };
+
+  const [selectedPlan, setSelectedPlan] = React.useState<string>(
+    getStoredValue("plan") || ""
+  );
+  const [price, setPrice] = React.useState<number>(
+    getStoredValue("price") || 0
+  );
+  const [monthlyPrice, setMonthlyPrice] = React.useState<number>(
+    getStoredValue("monthlyPrice") || 0
+  );
+
+  React.useEffect(() => {
+    setStoredValue("plan", selectedPlan);
+  }, [selectedPlan]);
+
+  React.useEffect(() => {
+    setStoredValue("price", price);
+  }, [price]);
+
+  React.useEffect(() => {
+    setStoredValue("monthlyPrice", monthlyPrice);
+  }, [monthlyPrice]);
 
   return (
-    <UserContext.Provider value={{ selectedPlan, setSelectedPlan, price, setPrice, monthlyPrice, setMonthlyPrice }}>
+    <UserContext.Provider
+      value={{
+        selectedPlan,
+        setSelectedPlan,
+        price,
+        setPrice,
+        monthlyPrice,
+        setMonthlyPrice,
+      }}
+    >
       {children}
     </UserContext.Provider>
   );

@@ -1,0 +1,29 @@
+import React from "react";
+
+const LucideLicense = () => {
+  return (
+    <div className="bg-white p-6 rounded-lg shadow-lg">
+      <p className="mb-4">
+        ISC License Copyright (c) for portions of Lucide are held by Cole Bemis
+        2013-2022 as part of Feather (MIT). All other copyright (c) for Lucide
+        are held by Lucide Contributors 2022.
+      </p>
+      <p className="mb-4">
+        Permission to use, copy, modify, and/or distribute this software for any
+        purpose with or without fee is hereby granted, provided that the above
+        copyright notice and this permission notice appear in all copies.
+      </p>
+      <p className="mb-4">
+        THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+        WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+        MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+        ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+        WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+        ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+        OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+      </p>
+    </div>
+  );
+};
+
+export default LucideLicense;

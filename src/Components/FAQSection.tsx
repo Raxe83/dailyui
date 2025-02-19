@@ -3,24 +3,29 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 
 const faqs = [
   {
-    question: "What is Daily | UI?",
+    question: "Wie lange dauert es, bis ich eine Antwort auf meine Anfrage erhalte?",
     answer:
-      "Daily | UI is a platform that provides daily UI design challenges to help designers improve their skills and creativity.",
+      "In der Regel erhalten Sie innerhalb von 24 bis 48 Stunden eine Antwort auf Ihre Anfrage. In dringenden Fällen können Sie uns auch telefonisch erreichen.",
   },
   {
-    question: "How does it work?",
+    question: "Bietet ihr Support nach Projektabschluss an?",
     answer:
-      "Each day, you'll receive a new UI challenge. You can create your design, share it with the community, and get feedback from fellow designers.",
+      "Ja, wir bieten auch nach Projektabschluss Support an. Wir sind für Sie da, wenn Sie Fragen haben oder Hilfe benötigen.",
   },
   {
-    question: "Do I need to be an experienced designer to join?",
+    question: "Welche Technologien nutzt ihr?",
     answer:
-      "Not at all! Daily | UI is suitable for designers of all levels, from beginners to experts. The challenges can be adapted to your skill level.",
+      "Wir arbeiten mit dem React-Framework und verwenden moderne Technologien wie Tailwind CSS, um moderne und performante Webseiten zu erstellen.",
   },
   {
-    question: "Can I use the designs in my portfolio?",
+    question: "Kann ich meine bestehende Website/App von euch überarbeiten lassen?",
     answer:
-      "The designs you create for Daily | UI challenges are yours to use in your portfolio or any other projects.",
+      "Ja, wir überarbeiten auch bestehende Webseiten und Apps. Kontaktieren Sie uns einfach und wir besprechen die Details.",
+  },
+  {
+    question: "Kann ich mein Projekt später erweitern lassen?",
+    answer:
+      "Ja, Sie können Ihr Projekt jederzeit erweitern lassen, um neue Funktionen hinzuzufügen oder bestehende zu verfeinern.",
   },
 ];
 
@@ -52,10 +57,10 @@ const FAQItem: React.FC<{ question: string; answer: string }> = ({
 
 const FAQSection: React.FC = () => {
   return (
-    <section id="faq" className="py-20">
+    <section id="faq" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-12">
-          Frequently Asked Questions
+          Allgemeine Fragen
         </h2>
         <div className="max-w-3xl mx-auto">
           {faqs.map((faq, index) => (

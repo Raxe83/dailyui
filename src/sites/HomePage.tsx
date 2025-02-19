@@ -2,11 +2,10 @@ import HeroSection from "../Components/HeroSection";
 import InfoCard from "../Components/InfoCard";
 import { Eye, Coins, Handshake } from "lucide-react";
 import ServicesOverview from "../Components/services";
-// import Contact from "../Components/Contact";
 import Button from "../Components/ui/CustomButton";
 import Pricing from "../Components/Pricing";
 import { Link as ScrollLink } from "react-scroll";
-// import InfoSection from "../Components/InfoSection";
+import FAQSection from "../Components/FAQSection";
 
 const HomePage = () => {
   return (
@@ -123,7 +122,7 @@ const HomePage = () => {
           },
         ]}
       />
-      {/* <Contact /> */}
+      <FAQSection />
     </div>
   );
 };

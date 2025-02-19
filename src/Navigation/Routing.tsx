@@ -5,6 +5,7 @@ import Header from "../Components/Header";
 import HomePage from "../sites/HomePage";
 import Datenschutz from "../sites/Datenschutz";
 import Contact from "../Components/Contact";
+import { ScrollToSection } from "../Components/ScrollToSection";
 
 const Routing = () => {
   return (
@@ -13,9 +14,10 @@ const Routing = () => {
         <BrowserRouter>
           <Header />
           <main className="flex-grow mt-16">
+            <ScrollToSection />
             <Routes>
               <Route path="/" element={<HomePage />} />
-              <Route path="/Privacy" element={<Datenschutz />} />
+              <Route path="/privacy" element={<Datenschutz />} />
               <Route path="/contact" element={<Contact />} />
             </Routes>
           </main>

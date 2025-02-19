@@ -1,82 +1,187 @@
-"use client";
-
-import type React from "react";
-
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Input } from "./ui/Input";
 import { Label } from "./ui/Label";
 import { Textarea } from "./ui/Textarea";
 import Button from "./ui/CustomButton";
 import { useUser } from "../user/UserContext";
-import UnderConstructionOverlay from "./ui/UnderConstructionOverlay";
+import Checkbox from "./ui/Checkbox";
+import emailjs from "emailjs-com";
+import { useToast } from "../notification/ToastProvider";
+import { Link } from "react-router-dom";
 
 export default function ContactForm() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [projectDescription, setProjectDescription] = useState("");
   const user = useUser();
+  emailjs.init("cnU228T6RzrtEtzDA");
+
+  const [name, setName] = useState(sessionStorage.getItem("name") || "");
+  const [email, setEmail] = useState(sessionStorage.getItem("email") || "");
+  const [projectDescription, setProjectDescription] = useState(
+    sessionStorage.getItem("projectDescription") || ""
+  );
+  const [isChecked, setIsChecked] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const toast = useToast();
+  useEffect(() => {
+    sessionStorage.setItem("name", name);
+    sessionStorage.setItem("email", email);
+    sessionStorage.setItem("projectDescription", projectDescription);
+  }, [name, email, projectDescription]);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Here you would typically send the form data to your server
-    console.log("Form submitted:", { name, email, projectDescription });
-    // Reset form fields after submission
-    setName("");
-    setEmail("");
-    setProjectDescription("");
+
+    if (!isChecked) {
+      alert("Bitte akzeptieren Sie die Datenschutzrichtlinien.");
+      return;
+    }
+
+    setLoading(true);
+
+    emailjs
+      .send(
+        "service_djqud4d",
+        "template_3yeglo7",
+        {
+          name,
+          email,
+          projectDescription,
+          plan: user?.selectedPlan || "Kein Plan gewählt",
+          price: user?.price || "0 €",
+        },
+        "cnU228T6RzrtEtzDA"
+      )
+      .then(
+        (response) => {
+          console.log("E-Mail gesendet:", response);
+          sessionStorage.removeItem("name");
+          sessionStorage.removeItem("email");
+          sessionStorage.removeItem("projectDescription");
+          setName("");
+          setEmail("");
+          setProjectDescription("");
+          setIsChecked(false);
+          toast.showToast({
+            type: "success",
+            header: "E-Mail gesendet",
+            message: "Ihre E-Mail wurde erfolgreich gesendet.",
+          });
+          setLoading(false);
+        },
+        (error) => {
+          console.log("E-Mail-Fehler:", error);
+          toast.showToast({
+            type: "error",
+            header: "E-Mail-Fehler",
+            message: "Ihre E-Mail konnte nicht gesendet werden.",
+          });
+          setLoading(false);
+        }
+      );
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 my-12 max-w-md mx-auto">
-        <UnderConstructionOverlay message="Das Kontakformular wird noch bearbeitet" />
-      <h1 className="text-3xl font-bold mb-6 text-center">
-        Kontaktieren Sie uns!
-      </h1>
-      <div>
-        <Label htmlFor="name">Name</Label>
-        <Input
-          id="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-      </div>
-      <div>
-        <Label htmlFor="email">E-Mail</Label>
-        <Input
-          id="email"
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-      </div>
-      <div>
-        <Label htmlFor="projectDescription">Projektbeschreibung</Label>
-        <Textarea
-          id="projectDescription"
-          value={projectDescription}
-          onChange={(e) => setProjectDescription(e.target.value)}
-          required
-          rows={4}
-        />
-      </div>
-      <div>+ {user?.selectedPlan}</div>
-      <div className="flex flex-row">Zusatzleistungen <p className="text-gray-400 text-sm ml-1">(Optional)</p></div>
-      <ul>
-        <li onClick={()=> {user?.setPrice(user.price + 150)}}>Logo-Design: ab 150 €</li>
-        <li onClick={()=> {user?.setMonthlyPrice(user.monthlyPrice + 50)}}>Wartung & Updates: ab 50 €/Monat</li>
-        <li onClick={()=> {user?.setMonthlyPrice(user.monthlyPrice + 20)}}>Hosting & Domain-Einrichtung: auf Anfrage</li>
-      </ul>
+    <div className="relative">
+      <form
+        onSubmit={handleSubmit}
+        className="space-y-6 my-12 max-w-md mx-auto p-6 bg-white shadow-lg rounded-lg relative"
+      >
+        <h1 className="text-3xl font-bold text-center text-gray-800">
+          Kontaktieren Sie uns!
+        </h1>
 
-      <div>Gesamt Preis: {user?.price}</div>
-      {user?.monthlyPrice ? <div>Monatlicher Preis: {user?.monthlyPrice}</div>: <div></div>}
-      <Button
-        color={"daily_ui"}
-        round="full"
-        onClick={() => {}}
-        text="Absenden"
-      />
-    </form>
+        <div>
+          <Label htmlFor="name">Name</Label>
+          <Input
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+        </div>
+
+        <div>
+          <Label htmlFor="email">E-Mail</Label>
+          <Input
+            id="email"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+
+        <div>
+          <Label htmlFor="projectDescription">Projektbeschreibung</Label>
+          <Textarea
+            id="projectDescription"
+            value={projectDescription}
+            onChange={(e) => setProjectDescription(e.target.value)}
+            required
+            rows={4}
+          />
+        </div>
+
+        {user?.selectedPlan ? (
+          <div className="flex items-center justify-center">
+            <p className="text-gray-600 font-semibold">Ausgewählter Plan:</p>
+            <span className="bg-blue-500 ml-auto font-semibold text-white text-sm px-4 py-2 rounded-full shadow-md">
+              {user?.selectedPlan}
+            </span>
+          </div>
+        ) : (
+          <div className="flex items-center justify-center">
+            <p className="text-gray-600 font-semibold">Kein Plan ausgewählt</p>
+            <Link
+              to="/#pricing"
+              className="text-blue-500 underline ml-auto font-semibold"
+            >
+              Pläne anzeigen
+            </Link>
+          </div>
+        )}
+
+        <div className="flex items-center gap-2">
+          <Checkbox
+            checked={isChecked}
+            onChange={() => setIsChecked(!isChecked)}
+          />
+          <span className="text-gray-700 text-sm">
+            Ich akzeptiere die{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="/Privacy"
+              className="text-blue-500 underline"
+            >
+              Datenschutzrichtlinien
+            </a>
+          </span>
+        </div>
+
+        {user?.price! > 0 && (
+          <div className="text-gray-700 font-semibold">
+            Gesamtpreis: {user?.price} €
+          </div>
+        )}
+
+        <Button
+          color={"primary"}
+          round="large"
+          text={loading ? "Senden..." : "Absenden"}
+          disabled={
+            loading || !name || !email || !projectDescription || !isChecked
+          }
+          onClick={() => {}}
+        />
+
+        {/* Lade-Overlay */}
+        {loading && (
+          <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-75 z-10">
+            <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+          </div>
+        )}
+      </form>
+    </div>
   );
 }

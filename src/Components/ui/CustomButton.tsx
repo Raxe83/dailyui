@@ -60,7 +60,7 @@ const Button: React.FC<ButtonProps> = (
       break;
     case "daily_ui":
       buttonType =
-        "bg-gradient-to-r from-blue-400 to-purple-600 text-white hover:from-blue-500 hover:to-purple-700 ";
+        `bg-gradient-to-r from-blue-400 to-purple-600 text-white ${!disabled && "hover:from-blue-500 hover:to-purple-700"} `;
       break;
     case "daily_ui_font":
       buttonType =

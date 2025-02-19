@@ -1,19 +1,20 @@
 import Routing from "./Navigation/Routing";
 import { ToastProvider } from "./notification/ToastProvider";
-import { Analytics } from "@vercel/analytics/react";
 import { UserProvider } from "./user/UserContext";
-import { SpeedInsights } from "@vercel/speed-insights/react"
+import CookieConsent from "./Components/privacy/CookieConsent";
+import { CookieProvider } from "./Components/privacy/CookieProvider";
 
 function App() {
   return (
     <div className="App">
-      <ToastProvider>
-        <UserProvider>
-          <Routing />
-          <Analytics />
-          <SpeedInsights />
-        </UserProvider>
-      </ToastProvider>
+      <CookieProvider>
+        <ToastProvider>
+          <UserProvider>
+            <Routing />
+            <CookieConsent />
+          </UserProvider>
+        </ToastProvider>
+      </CookieProvider>
     </div>
   );
 }

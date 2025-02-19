@@ -16,7 +16,7 @@ const HomePage = () => {
           "In der heutigen digitalen Welt ist eine professionelle Webseite unverzichtbar. Sie ist das Aushängeschild Ihres Unternehmens und oft der erste Eindruck, den potenzielle Kunden gewinnen. Wir erstellen maßgeschneiderte Webseiten, die Ihre Marke oder Ihr Unternehmen optimal präsentieren und Ihre Zielgruppe gezielt ansprechen."
         }
         buttons={[
-          <div className="w-4/12">
+          <div className="w-full lg:w-4/12">
             <Button
               color={"daily_ui"}
               round="full"

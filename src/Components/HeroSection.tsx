@@ -51,7 +51,7 @@ const HeroSection = ({ header, desc, buttons, imgSrc, alt, imgPos }: props) => {
   return (
     <div className="w-full py-12 px-24 bg-gray-50 text-black">
       <div className="flex flex-col items-center justify-center">
-        <div className="flex flex-row">
+        <div className="flex lg:flex-row flex-col justify-center items-center">
           <div className={`${imgPos === "left" ? "hidden" : "block"}`}>
             {imgComponent}
           </div>

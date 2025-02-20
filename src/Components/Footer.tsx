@@ -90,7 +90,7 @@ const Footer: React.FC = () => {
               </li>
               <li className="hover:text-gray-400 text-white transition duration-300 flex flex-row">
                 <Mail className="mr-2" />
-                raydenstudio83@gmail.com
+                contact@rayden-studio.com
               </li>
             </ul>
           </div>

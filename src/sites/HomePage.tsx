@@ -6,6 +6,7 @@ import Button from "../Components/ui/CustomButton";
 import Pricing from "../Components/Pricing";
 import { Link as ScrollLink } from "react-scroll";
 import FAQSection from "../Components/FAQSection";
+// import WhyChooseUs from "../Components/WhyChooseUs";
 
 const HomePage = () => {
   return (
@@ -68,6 +69,7 @@ const HomePage = () => {
           },
         ]}
       />
+      {/* <WhyChooseUs /> */}
       <ServicesOverview />
       <Pricing
         pricingProp={[

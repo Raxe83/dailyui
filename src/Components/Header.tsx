@@ -15,7 +15,7 @@ const Header = () => {
   return (
     <header className="bg-gray-50 fixed w-full z-50 text-black shadow-lg">
       <div className="max-w-7xl mx-auto">
-        <div className="flex md:justify-between items-center py-4 md:pr-8 lg:pr-0">
+        <div className="flex md:justify-between items-center py-4 mx-4 md:pr-8 lg:pr-0">
           <div className="flex items-center">
             <Link to="/">
               <p className="font-bold bg-gradient-to-r from-blue-400 to-purple-600 text-2xl w-48 text-transparent bg-clip-text cursor-pointer">

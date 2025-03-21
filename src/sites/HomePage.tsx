@@ -3,12 +3,30 @@ import InfoCard from "../Components/InfoCard";
 import { Eye, Coins, Handshake } from "lucide-react";
 import ServicesOverview from "../Components/services";
 import Button from "../Components/ui/CustomButton";
-import Pricing from "../Components/Pricing";
 import { Link as ScrollLink } from "react-scroll";
 import FAQSection from "../Components/FAQSection";
+import WebsitePreviewList from "../Components/ui/WebsitePreviewList";
 // import WhyChooseUs from "../Components/WhyChooseUs";
 
 const HomePage = () => {
+  const websites = [
+    {
+      url: "https://www.johnny-case.com/",
+      title: "Jonny Case",
+      description:
+        "Jonny Case ist ein Online shop welcher Hochwertige Cases für Joints verkauft",
+    },
+    // {
+    //   url: "https://burninglines.vercel.app/",
+    //   title: "Burning Lines Studio",
+    //   description: "Burning Lines Studio ist ein Tattoo Studio in Uelzen",
+    // },
+    // {
+    //   url: "https://ballerlos.fyfe.today/en/",
+    //   title: "Baller Los - Schülerfirma",
+    //   description: "Baller Los ist eine Schülerfirma an der BBS I Lüneburg",
+    // },
+  ];
   return (
     <div>
       {/* HeroSection */}
@@ -35,6 +53,8 @@ const HomePage = () => {
         alt={""}
         imgPos={"left"}
       />
+      <WebsitePreviewList websites={websites} />
+      <ServicesOverview />
       <InfoCard
         cardProp={[
           {
@@ -68,10 +88,9 @@ const HomePage = () => {
             alt: "Handshake Symbol",
           },
         ]}
-      />
+      />{" "}
       {/* <WhyChooseUs /> */}
-      <ServicesOverview />
-      <Pricing
+      {/* <Pricing
         pricingProp={[
           {
             title: "One Pager",
@@ -123,7 +142,7 @@ const HomePage = () => {
             ],
           },
         ]}
-      />
+      /> */}
       <FAQSection />
     </div>
   );

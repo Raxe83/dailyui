@@ -13,7 +13,7 @@ const Routing = () => {
       <div className={` flex flex-col min-h-full bg-gray-100`}>
         <BrowserRouter>
           <Header />
-          <main className="flex-grow mt-16">
+          <main className="flex-grow container mx-auto px-4 py-8 mt-12">
             <ScrollToSection />
             <Routes>
               <Route path="/" element={<HomePage />} />

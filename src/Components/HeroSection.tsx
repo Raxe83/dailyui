@@ -67,7 +67,7 @@ const HeroSection = ({ header, desc, buttons, imgSrc, alt, imgPos }: props) => {
 
   const imgComponent = (
     <div
-      className={`flex border w-[300px] lg:w-[600px] justify-center shadow-xl rounded-3xl bg-gray-200/50`}
+      className={`flex border w-[300px] lg:w-[600px] justify-center shadow-xl rounded-3xl`}
     >
       <img className="border rounded-3xl" src={img} alt={alt} />
     </div>
@@ -75,7 +75,7 @@ const HeroSection = ({ header, desc, buttons, imgSrc, alt, imgPos }: props) => {
   return (
     <div
       id="HeroSection"
-      className="w-full py-12 px-0 lg:px-24 bg-gray-50 text-black"
+      className="w-full py-12 px-0 lg:px-24  text-black"
     >
       <div className="flex flex-col items-center justify-center">
         <div className="flex lg:flex-row flex-col justify-center items-center">

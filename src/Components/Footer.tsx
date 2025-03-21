@@ -81,7 +81,7 @@ const Footer: React.FC = () => {
               </li>
               <li>
                 <Link
-                  to="#"
+                  to="https://www.instagram.com/rayden_web_studio/"
                   className="hover:text-gray-400 text-white transition duration-300 flex flex-row"
                 >
                   <Instagram className="mr-2" />

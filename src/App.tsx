@@ -1,8 +1,8 @@
-import Routing from "./Navigation/Routing";
 import { ToastProvider } from "./notification/ToastProvider";
 import { UserProvider } from "./user/UserContext";
 import CookieConsent from "./Components/privacy/CookieConsent";
 import { CookieProvider } from "./Components/privacy/CookieProvider";
+import Layout from "./Components/Layout";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <CookieProvider>
         <ToastProvider>
           <UserProvider>
-            <Routing />
+            <Layout />
             <CookieConsent />
           </UserProvider>
         </ToastProvider>
